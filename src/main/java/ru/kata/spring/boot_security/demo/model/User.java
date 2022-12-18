@@ -1,19 +1,13 @@
 package ru.kata.spring.boot_security.demo.model;
-<<<<<<< HEAD
-=======
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
->>>>>>> 60f7dc7 (Initial commit)
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
-<<<<<<< HEAD
-=======
 import java.util.HashSet;
->>>>>>> 60f7dc7 (Initial commit)
 import java.util.Objects;
 import java.util.Set;
 
@@ -27,21 +21,13 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String username;
     private String password;
-<<<<<<< HEAD
-    @ManyToMany(fetch = FetchType.EAGER)
-=======
     @ManyToMany(fetch = FetchType.LAZY)
->>>>>>> 60f7dc7 (Initial commit)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")    )
-<<<<<<< HEAD
-    private Set<Role> roles;
-=======
     @Fetch(FetchMode.JOIN)
     private Set<Role> roles = new HashSet<>();
->>>>>>> 60f7dc7 (Initial commit)
 
     private String name;
     private String lastName;
